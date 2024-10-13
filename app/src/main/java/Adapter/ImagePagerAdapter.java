@@ -41,6 +41,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         return view;
     }
 
+//实现抽象类方法
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);

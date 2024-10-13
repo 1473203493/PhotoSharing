@@ -44,7 +44,7 @@
             android:exported="true" />
         <activity android:name=".LikedActivity"
             android:exported="true" />
-        <activity android:name=".MyPostsActivity"
+        <activity android:name=".MyShareActivity"
             android:exported="true" />
         <activity android:name=".MoreActivity"
             android:exported="true" />

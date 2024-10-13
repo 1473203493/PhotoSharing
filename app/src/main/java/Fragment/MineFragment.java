@@ -18,11 +18,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.PhotoShare.CollectionActivity;
 import com.example.PhotoShare.EditInfoActivity;
 import com.example.PhotoShare.LikedActivity;
-import com.example.PhotoShare.MyPostsActivity;
+import com.example.PhotoShare.MyShareActivity;
 import com.example.PhotoShare.R;
 import com.example.PhotoShare.SaveActivity;
 import com.example.PhotoShare.SettingsActivity;
-//import setting.about_us;
+
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
@@ -34,7 +34,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-//import setting.help_feedback;
+
 
 public class MineFragment extends Fragment {
 
@@ -85,14 +85,7 @@ public class MineFragment extends Fragment {
                 startActivity(intent);
             }
         });
-       /* RelativeLayout aboutusLayout = view.findViewById(R.id.about_us);//关于我们
-        aboutusLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), about_us.class);
-                startActivity(intent);
-            }
-        });*/
+
         ImageView likedLayout = view.findViewById(R.id.liked);
         likedLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +98,7 @@ public class MineFragment extends Fragment {
         mypostsLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MyPostsActivity.class);
+                Intent intent = new Intent(getActivity(), MyShareActivity.class);
                 startActivity(intent);
             }
         });
@@ -125,15 +118,8 @@ public class MineFragment extends Fragment {
                 startActivity(intent);
             }
         });
-       /* RelativeLayout helpLayout = view.findViewById(R.id.help);
-        helpLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), help_feedback.class);
-                startActivity(intent);
-            }
-        });
-*/
+
+
         // 加载用户信息并显示
         loadUserInfo();
         return view;

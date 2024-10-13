@@ -1,3 +1,4 @@
+
 package com.example.PhotoShare;
 
 import android.content.Context;
@@ -26,7 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyPostsActivity extends AppCompatActivity {
+public class MyShareActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private CardAdapter cardAdapter;
@@ -75,7 +76,7 @@ public class MyPostsActivity extends AppCompatActivity {
             public void onFailure(Call call, IOException e) {
                 Log.e("Error", "Network Error: " + e.getMessage(), e);
                 runOnUiThread(() ->
-                        Toast.makeText(MyPostsActivity.this, "网络错误: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(MyShareActivity.this, "网络错误: " + e.getMessage(), Toast.LENGTH_SHORT).show()
                 );
             }
 
@@ -85,7 +86,7 @@ public class MyPostsActivity extends AppCompatActivity {
                     String responseBody = response.body() != null ? response.body().string() : "null";
                     Log.e("Error", "Unsuccessful response: " + response.code() + " - " + responseBody);
                     runOnUiThread(() ->
-                            Toast.makeText(MyPostsActivity.this, "获取数据失败: " + response.message(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(MyShareActivity.this, "获取数据失败: " + response.message(), Toast.LENGTH_SHORT).show()
                     );
                 } else {
                     String responseData = response.body().string();
@@ -121,13 +122,13 @@ public class MyPostsActivity extends AppCompatActivity {
                         } else {
                             String message = jsonResponse.optString("msg", "Unknown error");
                             runOnUiThread(() ->
-                                    Toast.makeText(MyPostsActivity.this, "获取数据失败: " + message, Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(MyShareActivity.this, "获取数据失败: " + message, Toast.LENGTH_SHORT).show()
                             );
                         }
                     } catch (Exception e) {
                         Log.e("Error", "Error parsing response", e);
                         runOnUiThread(() ->
-                                Toast.makeText(MyPostsActivity.this, "解析响应错误", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(MyShareActivity.this, "解析响应错误", Toast.LENGTH_SHORT).show()
                         );
                     }
                 }
