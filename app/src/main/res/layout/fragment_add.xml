@@ -65,7 +65,7 @@
                 android:layout_below="@id/add_img"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="60dp"> <!-- 增加 marginTop 值 -->
 
                 <!-- 保存按钮 -->
                 <Button
