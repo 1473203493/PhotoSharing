@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    tools:context="Fragment.MineFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/re_myinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="18dp"
+            android:background="@color/white"
+            android:clickable="true"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <tool.CircleImageView
+                android:id="@+id/iv_avatar"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/circular_background"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/avatar" />
+
+            <LinearLayout
+                android:id="@+id/ll_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_toRightOf="@id/iv_avatar"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="用户名："
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_name"
+                android:layout_toRightOf="@id/iv_avatar"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_sex"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="性别图标"
+                    android:src="@drawable/baseline_male_24" /> <!-- 默认占位图标 -->
+
+                <TextView
+                    android:id="@+id/sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#353535"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_introduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_sex"
+                android:layout_toRightOf="@id/iv_avatar"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="8dp"
+                android:text="个人介绍："
+                android:textColor="#353535"
+                android:textSize="14sp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:layout_marginRight="16dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="12dp"
+            android:background="#dadada" />
+
+        <RelativeLayout
+            android:id="@+id/hobby"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="18dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="我的动态"
+                android:textColor="#353535"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/myposts"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/public1"
+                android:clickable="true"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/collection"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="125dp"
+                android:src="@drawable/collection"
+                android:clickable="true"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/save"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="230dp"
+                android:src="@drawable/save"
+                android:clickable="true"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/liked"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/like" />
+
+            <TextView
+                android:id="@+id/text0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/myposts"
+                android:layout_alignLeft="@id/myposts"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="1dp"
+                android:text="我的分享"
+                android:textColor="@color/colorhobby"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/collection"
+                android:layout_alignLeft="@id/collection"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="1dp"
+                android:text="我的收藏"
+                android:textColor="@color/colorhobby"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/save"
+                android:layout_alignLeft="@id/save"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="1dp"
+                android:text="我的草稿"
+                android:textColor="@color/colorhobby"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/liked"
+                android:layout_alignLeft="@id/liked"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="2dp"
+                android:text="我的点赞"
+                android:textColor="@color/colorhobby"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="12dp"
+            android:background="#dadada" />
+
+        <RelativeLayout
+            android:id="@+id/information"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:paddingLeft="12dp">
+
+            <ImageView
+                android:id="@+id/information1"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/information" />
+
+            <TextView
+                android:id="@+id/iv_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/information1"
+                android:text="账号与信息"
+                android:textColor="#353535"
+                android:textSize="16sp"
+                android:clickable="true"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="12dp"
+                android:background="#dadada" />
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/settings"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="0dp"
+            android:clickable="true"
+            android:paddingLeft="12dp">
+
+            <ImageView
+                android:id="@+id/iv_setting"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/setting" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/iv_setting"
+                android:text="设置"
+                android:textColor="#353535"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="12dp"
+                android:background="#dadada" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

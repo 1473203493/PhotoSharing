@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#14D4ED</color>
+    <color name="red">#FF0000</color>
+    <color name="colorPrimary">#14D4ED</color>
+    <color name="colorAccent">#14D4ED</color>
+    <color name="colorPrimaryDark">#14D4ED</color>
+    <color name="colorgrey">#C0C4CC</color>
+    <color name="colorhobby">#808794</color>
+    <color name="comment_input">#51C0C4CC</color>
+</resources>

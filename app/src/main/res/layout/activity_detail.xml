@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- 顶部栏：返回按钮、用户头像、用户名、关注按钮 -->
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="9dp"
+        android:background="#FFFFFF">
+
+        <!-- 返回按钮 -->
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/back"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/baseline_arrow_back_24" />
+
+        <!-- 用户头像 -->
+        <ImageView
+            android:id="@+id/user_avatar"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/avatar"
+            android:scaleType="centerCrop"/>
+
+        <!-- 用户名 -->
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:text="用户名"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+
+        <!-- 关注按钮 -->
+        <Button
+            android:id="@+id/btn_focus"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:text="关注"
+            android:textColor="@color/white"
+            android:background="@drawable/follow_shape"
+            android:textSize="13sp"
+            android:padding="0dp"/>
+    </LinearLayout>
+
+    <!-- 滚动内容 -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:fillViewport="true"
+        android:layout_marginBottom="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 图片展示区域 -->
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"/>
+
+            <!-- 文章标题 -->
+            <TextView
+                android:id="@+id/post_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="文章标题"
+                android:textColor="#000000"
+                android:textSize="21sp"
+                android:textStyle="bold"/>
+
+            <!-- 文章内容 -->
+            <TextView
+                android:id="@+id/post_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="文章内容..."
+                android:textColor="#333333"
+                android:textSize="18sp"/>
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="63dp"
+                android:background="#5E615A5A"/>
+
+            <!-- 一级评论区域 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- 底部操作栏 -->
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="3dp"
+        android:background="#FFFFFF">
+
+        <!-- 评论输入框 -->
+        <EditText
+            android:id="@+id/comment_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="说点什么..."
+            android:background="@drawable/comment_shape"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:layout_marginRight="8dp"/>
+
+        <!-- 点赞图标和数量 -->
+        <ImageView
+            android:id="@+id/btn_like"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/love"
+            android:contentDescription="Like"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="4dp"/>
+
+        <TextView
+            android:id="@+id/like_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_marginRight="22dp"/>
+
+        <!-- 收藏图标和数量 -->
+        <ImageView
+            android:id="@+id/btn_collect"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/collection"
+            android:contentDescription="Collect"
+            android:layout_marginRight="4dp"/>
+
+        <TextView
+            android:id="@+id/collect_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_marginRight="22dp"/>
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:text="发送"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:background="@drawable/send_shape"
+            android:padding="0dp"
+            android:visibility="gone"/> <!-- Initially hidden -->
+
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
