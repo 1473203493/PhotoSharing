@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -50,7 +51,7 @@ public class AddFragment extends Fragment {
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final int REQUEST_PERMISSION_CODE = 100;
     private EditText titleEditText, contentEditText;
-    private ImageView selectedImageView;
+    private Button selectedImageView;
     private List<Uri> selectedImageUris = new ArrayList<>();
     private Button shareButton,saveButton;
     private OkHttpClient client;
@@ -132,7 +133,7 @@ public class AddFragment extends Fragment {
     private void displayImage(Uri imageUri) {
         try {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
-            selectedImageView.setImageBitmap(bitmap);
+            selectedImageView.setBackground(new BitmapDrawable(getResources(), bitmap));
         } catch (IOException e) {
             Log.e("ImageDisplayError", e.getMessage(), e);
         }
