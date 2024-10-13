@@ -168,7 +168,7 @@ public class MineFragment extends Fragment {
                             String username = data.optString("username", "");
                             String avatarUrl = data.optString("avatar", "");
                             int sex = data.optInt("sex", 1);  // 默认性别为男
-                            String introduce = data.optString("introduce", "暂无介绍");
+                            String introduce = data.optString("introduce", "暂无签名");
 
                             SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
