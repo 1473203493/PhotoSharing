@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
                     case 1:
                         return new FocusFragment();   // "关注" Fragment
                     default:
-                        return new Fragment(); // Default case, should never happen
+                        return new Fragment(); // Default case
                 }
             }
 
