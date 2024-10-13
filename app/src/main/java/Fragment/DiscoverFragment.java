@@ -74,8 +74,8 @@ public class DiscoverFragment extends Fragment {
 
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("appId", "63460c96c2fb45738d9cdc7deebcdde3")
-                .addHeader("appSecret", "942526cc88c2a0b54411d8472919aa9ffdcfa")
+                .addHeader("appId", "750baf37e04f432e8425dfa10a21b4e9")
+                .addHeader("appSecret", "8012134351201e3b043429ff5761d21e1eafd")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {

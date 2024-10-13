@@ -163,8 +163,8 @@ public class MoreActivity extends AppCompatActivity {
 
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("appId", "63460c96c2fb45738d9cdc7deebcdde3")
-                .addHeader("appSecret", "942526cc88c2a0b54411d8472919aa9ffdcfa")
+                .addHeader("appId", "750baf37e04f432e8425dfa10a21b4e9")
+                .addHeader("appSecret", "8012134351201e3b043429ff5761d21e1eafd")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -210,8 +210,8 @@ public class MoreActivity extends AppCompatActivity {
 
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("appId", "63460c96c2fb45738d9cdc7deebcdde3")
-                .addHeader("appSecret", "942526cc88c2a0b54411d8472919aa9ffdcfa")
+                .addHeader("appId", "750baf37e04f432e8425dfa10a21b4e9")
+                .addHeader("appSecret", "8012134351201e3b043429ff5761d21e1eafd")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -280,8 +280,8 @@ public class MoreActivity extends AppCompatActivity {
         // 创建请求
         Request request = new Request.Builder()
                 .url("https://api-store.openguet.cn/api/member/photo/comment/first")
-                .addHeader("appId", "63460c96c2fb45738d9cdc7deebcdde3")
-                .addHeader("appSecret", "942526cc88c2a0b54411d8472919aa9ffdcfa")
+                .addHeader("appId", "750baf37e04f432e8425dfa10a21b4e9")
+                .addHeader("appSecret", "8012134351201e3b043429ff5761d21e1eafd")
                 .post(requestBody)
                 .build();
 
@@ -641,8 +641,8 @@ public class MoreActivity extends AppCompatActivity {
     private void executePostRequest(String url, RequestBody requestBody, Callback callback) {
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("appId", "63460c96c2fb45738d9cdc7deebcdde3")
-                .addHeader("appSecret", "942526cc88c2a0b54411d8472919aa9ffdcfa")
+                .addHeader("appId", "750baf37e04f432e8425dfa10a21b4e9")
+                .addHeader("appSecret", "8012134351201e3b043429ff5761d21e1eafd")
                 .post(requestBody)
                 .build();
 
@@ -652,8 +652,8 @@ public class MoreActivity extends AppCompatActivity {
     private void executeGetRequest(String url, Callback callback) {
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("appId", "63460c96c2fb45738d9cdc7deebcdde3")
-                .addHeader("appSecret", "942526cc88c2a0b54411d8472919aa9ffdcfa")
+                .addHeader("appId", "750baf37e04f432e8425dfa10a21b4e9")
+                .addHeader("appSecret", "8012134351201e3b043429ff5761d21e1eafd")
                 .build();
 
         client.newCall(request).enqueue(callback);

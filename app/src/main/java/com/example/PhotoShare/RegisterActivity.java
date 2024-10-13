@@ -108,8 +108,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 .addInterceptor(chain -> {
                                     Request originalRequest = chain.request();
                                     Request newRequest = originalRequest.newBuilder()
-                                            .header("appId", "63460c96c2fb45738d9cdc7deebcdde3")
-                                            .header("appSecret", "942526cc88c2a0b54411d8472919aa9ffdcfa")
+                                            .header("appId", "750baf37e04f432e8425dfa10a21b4e9")
+                                            .header("appSecret", "8012134351201e3b043429ff5761d21e1eafd")
                                             .build();
                                     return chain.proceed(newRequest);
                                 })
