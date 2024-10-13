@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private Switch switchDarkMode;
+    //private Switch switchDarkMode;
     private Button btnLogout;
     private ImageButton btnBack;
     @Override

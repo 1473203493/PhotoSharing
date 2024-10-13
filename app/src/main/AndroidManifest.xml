@@ -42,12 +42,6 @@
             android:exported="true" />
         <activity android:name=".SettingsActivity"
             android:exported="true" />
-        <activity android:name="setting.about_us"
-            android:exported="true" />
-        <activity android:name="setting.help_feedback"
-            android:exported="true" />
-        <activity android:name="setting.community_norm"
-            android:exported="true" />
         <activity android:name=".LikedActivity"
             android:exported="true" />
         <activity android:name=".MyPostsActivity"
@@ -55,8 +49,6 @@
         <activity android:name=".DetailActivity"
             android:exported="true" />
         <activity android:name=".CollectionActivity"
-            android:exported="true" />
-        <activity android:name="setting.user_agreement"
             android:exported="true" />
         <activity android:name=".SaveActivity"
             android:exported="true" />
