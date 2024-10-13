@@ -39,7 +39,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailActivity extends AppCompatActivity {
+public class MoreActivity extends AppCompatActivity {
     private RecyclerView recyclerViewComments;
     private CommentAdapter commentAdapter;
     private List<Comment> commentList = new ArrayList<>();
@@ -299,7 +299,7 @@ public class DetailActivity extends AppCompatActivity {
                     Log.d("CommentPostResponse", "Response: " + responseData);
 
                     runOnUiThread(() -> {
-                        Toast.makeText(DetailActivity.this, "评论发送成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MoreActivity.this, "评论发送成功", Toast.LENGTH_SHORT).show();
                         commentInput.setText("");
                         fetchComments();  // 刷新评论列表
                     });
@@ -307,7 +307,7 @@ public class DetailActivity extends AppCompatActivity {
                     String responseBody = response.body().string();
                     Log.e("CommentPostError", "Error response: " + responseBody);
                     runOnUiThread(() ->
-                            Toast.makeText(DetailActivity.this, "评论发送失败", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(MoreActivity.this, "评论发送失败", Toast.LENGTH_SHORT).show()
                     );
                 }
             }
@@ -325,7 +325,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onFailure(okhttp3.Call call, IOException e) {
                 Log.e("PostDetailError", "Network Error: " + e.getMessage(), e);
                 runOnUiThread(() ->
-                        Toast.makeText(DetailActivity.this, "网络错误: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(MoreActivity.this, "网络错误: " + e.getMessage(), Toast.LENGTH_SHORT).show()
                 );
             }
 
@@ -335,7 +335,7 @@ public class DetailActivity extends AppCompatActivity {
                     String responseBody = response.body() != null ? response.body().string() : "null";
                     Log.e("PostDetailError", "Unsuccessful response: " + response.code() + " - " + responseBody);
                     runOnUiThread(() ->
-                            Toast.makeText(DetailActivity.this, "获取数据失败: " + response.message(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(MoreActivity.this, "获取数据失败: " + response.message(), Toast.LENGTH_SHORT).show()
                     );
                 } else {
                     String responseData = response.body().string();
@@ -385,25 +385,25 @@ public class DetailActivity extends AppCompatActivity {
                                     } catch (JSONException e) {
                                         Log.e("PostDetailError", "Error parsing imageUrlList", e);
                                         runOnUiThread(() ->
-                                                Toast.makeText(DetailActivity.this, "解析图片列表时出错", Toast.LENGTH_SHORT).show()
+                                                Toast.makeText(MoreActivity.this, "解析图片列表时出错", Toast.LENGTH_SHORT).show()
                                         );
                                     }
 
                                     // 设置 ViewPager 的 Adapter 来展示图片
-                                    ImagePagerAdapter adapter = new ImagePagerAdapter(DetailActivity.this, images);
+                                    ImagePagerAdapter adapter = new ImagePagerAdapter(MoreActivity.this, images);
                                     viewPager.setAdapter(adapter);
                                 }
                             });
                         } else {
                             String message = jsonResponse.optString("msg", "Unknown error");
                             runOnUiThread(() ->
-                                    Toast.makeText(DetailActivity.this, "获取数据失败: " + message, Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(MoreActivity.this, "获取数据失败: " + message, Toast.LENGTH_SHORT).show()
                             );
                         }
                     } catch (Exception e) {
                         Log.e("PostDetailError", "Error parsing response", e);
                         runOnUiThread(() ->
-                                Toast.makeText(DetailActivity.this, "解析响应错误", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(MoreActivity.this, "解析响应错误", Toast.LENGTH_SHORT).show()
                         );
                     }
                 }
@@ -423,7 +423,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onFailure(okhttp3.Call call, IOException e) {
                 Log.e("LikeError", "Network Error: " + e.getMessage(), e);
                 runOnUiThread(() ->
-                        Toast.makeText(DetailActivity.this, "点赞失败: 网络错误", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(MoreActivity.this, "点赞失败: 网络错误", Toast.LENGTH_SHORT).show()
                 );
             }
 
@@ -434,13 +434,13 @@ public class DetailActivity extends AppCompatActivity {
                         // Update local like status
                         hasLike = true;
                         updateLikeButton();
-                        Toast.makeText(DetailActivity.this, "点赞成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MoreActivity.this, "点赞成功", Toast.LENGTH_SHORT).show();
                         // Re-fetch post details
                         fetchPostDetail(shareId);
                     });
                 } else {
                     runOnUiThread(() ->
-                            Toast.makeText(DetailActivity.this, "点赞失败: " + response.message(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(MoreActivity.this, "点赞失败: " + response.message(), Toast.LENGTH_SHORT).show()
                     );
                 }
             }
@@ -459,7 +459,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onFailure(okhttp3.Call call, IOException e) {
                 Log.e("CancelLikeError", "Network Error: " + e.getMessage(), e);
                 runOnUiThread(() ->
-                        Toast.makeText(DetailActivity.this, "取消点赞失败: 网络错误", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(MoreActivity.this, "取消点赞失败: 网络错误", Toast.LENGTH_SHORT).show()
                 );
             }
 
@@ -469,12 +469,12 @@ public class DetailActivity extends AppCompatActivity {
                     hasLike = false;
                     runOnUiThread(() -> {
                         updateLikeButton();
-                        Toast.makeText(DetailActivity.this, "取消点赞成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MoreActivity.this, "取消点赞成功", Toast.LENGTH_SHORT).show();
                         fetchPostDetail(shareId);
                     });
                 } else {
                     runOnUiThread(() ->
-                            Toast.makeText(DetailActivity.this, "取消点赞失败: " + response.message(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(MoreActivity.this, "取消点赞失败: " + response.message(), Toast.LENGTH_SHORT).show()
                     );
                 }
             }
@@ -493,7 +493,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onFailure(okhttp3.Call call, IOException e) {
                 Log.e("CollectError", "Network Error: " + e.getMessage(), e);
                 runOnUiThread(() ->
-                        Toast.makeText(DetailActivity.this, "收藏失败: 网络错误", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(MoreActivity.this, "收藏失败: 网络错误", Toast.LENGTH_SHORT).show()
                 );
             }
 
@@ -503,12 +503,12 @@ public class DetailActivity extends AppCompatActivity {
                     hasCollect = true;
                     runOnUiThread(() -> {
                         updateCollectButton();
-                        Toast.makeText(DetailActivity.this, "收藏成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MoreActivity.this, "收藏成功", Toast.LENGTH_SHORT).show();
                         fetchPostDetail(shareId);
                     });
                 } else {
                     runOnUiThread(() ->
-                            Toast.makeText(DetailActivity.this, "收藏失败: " + response.message(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(MoreActivity.this, "收藏失败: " + response.message(), Toast.LENGTH_SHORT).show()
                     );
                 }
             }
@@ -526,7 +526,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onFailure(okhttp3.Call call, IOException e) {
                 Log.e("CancelCollectError", "Network Error: " + e.getMessage(), e);
                 runOnUiThread(() ->
-                        Toast.makeText(DetailActivity.this, "取消收藏失败: 网络错误", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(MoreActivity.this, "取消收藏失败: 网络错误", Toast.LENGTH_SHORT).show()
                 );
             }
 
@@ -536,12 +536,12 @@ public class DetailActivity extends AppCompatActivity {
                     hasCollect = false;
                     runOnUiThread(() -> {
                         updateCollectButton();
-                        Toast.makeText(DetailActivity.this, "取消收藏成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MoreActivity.this, "取消收藏成功", Toast.LENGTH_SHORT).show();
                         fetchPostDetail(shareId);
                     });
                 } else {
                     runOnUiThread(() ->
-                            Toast.makeText(DetailActivity.this, "取消收藏失败: " + response.message(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(MoreActivity.this, "取消收藏失败: " + response.message(), Toast.LENGTH_SHORT).show()
                     );
                 }
             }
@@ -560,7 +560,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onFailure(okhttp3.Call call, IOException e) {
                 Log.e("FocusError", "Network Error: " + e.getMessage(), e);
                 runOnUiThread(() ->
-                        Toast.makeText(DetailActivity.this, "关注失败: 网络错误", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(MoreActivity.this, "关注失败: 网络错误", Toast.LENGTH_SHORT).show()
                 );
             }
 
@@ -570,11 +570,11 @@ public class DetailActivity extends AppCompatActivity {
                     hasFocus = true;
                     runOnUiThread(() -> {
                         updateFocusButton();
-                        Toast.makeText(DetailActivity.this, "关注成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MoreActivity.this, "关注成功", Toast.LENGTH_SHORT).show();
                     });
                 } else {
                     runOnUiThread(() ->
-                            Toast.makeText(DetailActivity.this, "关注失败: " + response.message(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(MoreActivity.this, "关注失败: " + response.message(), Toast.LENGTH_SHORT).show()
                     );
                 }
             }
@@ -593,7 +593,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onFailure(okhttp3.Call call, IOException e) {
                 Log.e("CancelFocusError", "Network Error: " + e.getMessage(), e);
                 runOnUiThread(() ->
-                        Toast.makeText(DetailActivity.this, "取消关注失败: 网络错误", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(MoreActivity.this, "取消关注失败: 网络错误", Toast.LENGTH_SHORT).show()
                 );
             }
 
@@ -603,11 +603,11 @@ public class DetailActivity extends AppCompatActivity {
                     hasFocus = false;
                     runOnUiThread(() -> {
                         updateFocusButton();
-                        Toast.makeText(DetailActivity.this, "取消关注成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MoreActivity.this, "取消关注成功", Toast.LENGTH_SHORT).show();
                     });
                 } else {
                     runOnUiThread(() ->
-                            Toast.makeText(DetailActivity.this, "取消关注失败: " + response.message(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(MoreActivity.this, "取消关注失败: " + response.message(), Toast.LENGTH_SHORT).show()
                     );
                 }
             }

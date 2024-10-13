@@ -23,13 +23,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     private List<Comment> commentList;
     private Context context;
 
-    private OnReplyClickListener onReplyClickListener;
+   // private OnReplyClickListener onReplyClickListener;
 
     public CommentAdapter(Context context, List<Comment> commentList,
                           OnReplyClickListener onReplyClickListener) {
         this.context = context;
         this.commentList = commentList;
-        this.onReplyClickListener = onReplyClickListener;
+      //  this.onReplyClickListener = onReplyClickListener;
     }
 
     @NonNull

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.PhotoShare.DetailActivity;
+import com.example.PhotoShare.MoreActivity;
 import com.example.PhotoShare.R;
 import com.squareup.picasso.Picasso;
 
@@ -73,7 +73,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         });
         // 图片点击事件
         holder.imageView.setOnClickListener(v -> {
-            Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
+            Intent intent = new Intent(holder.itemView.getContext(), MoreActivity.class);
             intent.putExtra("share_id", card.getId());  // 传递分享的主键ID
             holder.itemView.getContext().startActivity(intent);
         });
@@ -126,7 +126,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
                     card.setLiked(true);
-                    card.incrementLikeCount();
+                    card.increateLikeCount();
 
                     // 更新UI
                     holder.itemView.post(() -> {

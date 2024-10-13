@@ -125,7 +125,7 @@
 
         <Button
             android:id="@+id/bt_login"
-            android:text="登 录"
+            android:text="登录"
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:background="@drawable/add_border"

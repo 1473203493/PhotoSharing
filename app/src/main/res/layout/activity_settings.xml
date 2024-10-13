@@ -46,11 +46,11 @@
             android:id="@+id/btn_logout"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:padding="16dp"
-            android:text="退出登录"
-            android:textColor="@android:color/black"
-            android:background="@drawable/button_border"/>
+            android:layout_marginBottom="8dp"
+        android:padding="16dp"
+        android:text="退出登录"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_border"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -1,11 +1,9 @@
 package com.example.PhotoShare;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
@@ -17,12 +15,9 @@ import entity.Card;
 import Adapter.CardAdapter;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
-import tool.RecyclerItemClickListener;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -61,19 +56,7 @@ public class MyPostsActivity extends AppCompatActivity {
         // 获取点赞的图文列表
         fetchLikedPhotos();
 
-        // 添加长按删除功能
-        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                // 普通点击事件
-            }
 
-            @Override
-            public void onLongItemClick(View view, int position) {
-                // 处理长按删除操作
-                showDeleteConfirmationDialog(position);
-            }
-        }));
     }
 
     private void fetchLikedPhotos() {
@@ -152,77 +135,6 @@ public class MyPostsActivity extends AppCompatActivity {
         });
     }
 
-    // 弹出确认删除对话框
-    private void showDeleteConfirmationDialog(int position) {
-        // 弹出确认对话框
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("确定要删除该图文分享吗？")
-                .setPositiveButton("确定", (dialog, which) -> {
-                    // 获取选择的 Card 对象
-                    Card selectedCard = cardList.get(position);
 
-                    // 获取当前登录用户的 userId
-                    SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
-                    long userId = sharedPreferences.getLong("user_id", 0);  // 获取当前登录用户ID
-
-                    if (userId != 0) {
-                        // 调用删除方法，传入 postId 和 userId
-                        deletePost(selectedCard.getId(), userId, position);
-                    } else {
-                        Toast.makeText(this, "用户未登录或userId无效", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNegativeButton("取消", (dialog, which) -> dialog.dismiss())
-                .create()
-                .show();
-    }
-
-    public void deletePost(long postId, long userId, int position) {
-        Log.d("Delete Params", "postId: " + postId + ", userId: " + userId);
-
-        String url = "https://api-store.openguet.cn/api/member/photo/share/delete";
-
-        // 使用表单格式提交数据
-        RequestBody requestBody = new FormBody.Builder()
-                .add("shareId", String.valueOf(postId))  // 传递图文ID
-                .add("userId", String.valueOf(userId))  // 传递用户ID
-                .build();
-
-        // 打印请求参数以供调试
-        Log.d("Delete Request", "Request: shareId=" + postId + ", userId=" + userId);
-
-        // 发送 POST 请求
-        Request request = new Request.Builder()
-                .url(url)
-                .post(requestBody)
-                .addHeader("appId", "63460c96c2fb45738d9cdc7deebcdde3")
-                .addHeader("appSecret", "942526cc88c2a0b54411d8472919aa9ffdcfa")
-                .build();
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.e("Delete Error", "Network Error: " + e.getMessage(), e);
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String responseBody = response.body().string();
-                Log.d("Delete Response", responseBody);  // 打印服务器响应
-
-                if (!response.isSuccessful()) {
-                    Log.e("Delete Failed", "Error: " + responseBody);
-                } else {
-                    Log.d("Delete Success", "Successfully deleted post");
-                    // 删除成功后更新 UI，移除已删除的图文
-                    runOnUiThread(() -> {
-                        cardList.remove(position);
-                        cardAdapter.notifyItemRemoved(position);  // 更新RecyclerView
-                        Toast.makeText(MyPostsActivity.this, "图文删除成功", Toast.LENGTH_SHORT).show();
-                    });
-                }
-            }
-        });
-    }
 
 }

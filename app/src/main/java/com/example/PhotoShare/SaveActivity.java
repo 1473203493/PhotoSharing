@@ -62,7 +62,7 @@ public class SaveActivity extends AppCompatActivity {
         // 获取点赞的图文列表
         getsave();
 
-        // 添加长按删除功能
+        // 添加长按是否发送功能
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -72,14 +72,14 @@ public class SaveActivity extends AppCompatActivity {
             @Override
             public void onLongItemClick(View view, int position) {
                 // 处理长按发布操作
-                showDeleteConfirmationDialog(position);
+                showConfirmationDialog(position);
             }
         }));
     }
-    private void showDeleteConfirmationDialog(int position) {
+    private void showConfirmationDialog(int position) {
         // 弹出确认对话框
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("确定要更新该图文分享吗？")
+        builder.setMessage("确定生成图文分享吗？")
                 .setPositiveButton("确定", (dialog, which) -> {
                     // 获取选择的 Card 对象
                     Card selectedCard = cardList.get(position);

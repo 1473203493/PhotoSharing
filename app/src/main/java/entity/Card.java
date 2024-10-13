@@ -71,7 +71,7 @@ public class Card {
         this.likeId = likeId;
     }
 
-    public void incrementLikeCount() {
+    public void increateLikeCount() {
         this.likeCount++;
     }
 

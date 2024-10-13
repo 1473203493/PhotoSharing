@@ -46,7 +46,7 @@
             android:exported="true" />
         <activity android:name=".MyPostsActivity"
             android:exported="true" />
-        <activity android:name=".DetailActivity"
+        <activity android:name=".MoreActivity"
             android:exported="true" />
         <activity android:name=".CollectionActivity"
             android:exported="true" />

@@ -101,5 +101,5 @@
         android:textColor="@android:color/white"
         android:background="@drawable/add_border"
         android:textSize="20sp"
-        android:text="注   册" />
+        android:text="注册" />
 </LinearLayout>
