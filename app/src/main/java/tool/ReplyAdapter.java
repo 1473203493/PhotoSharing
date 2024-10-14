@@ -55,8 +55,8 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.ReplyViewHol
     }
 
     public static class ReplyViewHolder extends RecyclerView.ViewHolder {
-        ImageView replyUserAvatar, replyBtnLike;
-        TextView replyUserName, replyContent, replyTime, replyLikeCount;
+        ImageView replyUserAvatar;
+        TextView replyUserName, replyContent, replyTime;
 
         public ReplyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,8 +64,7 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.ReplyViewHol
             replyUserName = itemView.findViewById(R.id.reply_user_name);
             replyContent = itemView.findViewById(R.id.reply_content);
             replyTime = itemView.findViewById(R.id.reply_time);
-            replyBtnLike = itemView.findViewById(R.id.reply_btn_like);
-            replyLikeCount = itemView.findViewById(R.id.reply_like_count);
+
         }
     }
 }
