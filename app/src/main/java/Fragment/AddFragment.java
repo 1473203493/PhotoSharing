@@ -79,13 +79,13 @@ public class AddFragment extends Fragment {
         saveButton.setOnClickListener(v -> savepost());
         return view;
     }
-
+//请求访问外部储存权限
     private void checkPermissions() {
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_PERMISSION_CODE);
         }
     }
-
+//处理请求权限失败
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -93,10 +93,10 @@ public class AddFragment extends Fragment {
             Toast.makeText(getActivity(), "Permission denied", Toast.LENGTH_SHORT).show();
         }
     }
-
+//选择图片
     private void openImagePicker() {
         Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
+        intent.setType("image/*");//图片类型
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
@@ -109,8 +109,9 @@ public class AddFragment extends Fragment {
             handleImageSelection(data);
         }
     }
-
+//处理图片选择
     private void handleImageSelection(Intent data) {
+   //选择多个图片
         if (data.getClipData() != null) {
             selectedImageUris.clear();
             int count = data.getClipData().getItemCount();
@@ -122,14 +123,16 @@ public class AddFragment extends Fragment {
             if (!selectedImageUris.isEmpty()) {
                 displayImage(selectedImageUris.get(0));
             }
-        } else if (data.getData() != null) {
+        } 
+        //选择单个图片
+        else if (data.getData() != null) {
             Uri imageUri = data.getData();
             selectedImageUris.clear();
             selectedImageUris.add(imageUri);
             displayImage(imageUri);
         }
     }
-
+//展示图片，用“选择图片”的按钮做位置
     private void displayImage(Uri imageUri) {
         try {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
