@@ -59,30 +59,7 @@
                 android:layout_marginTop="4dp"/>
         </LinearLayout>
 
-        <!-- 点赞按钮和点赞数放在最右边 -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
 
-            <!-- 点赞按钮 -->
-            <ImageView
-                android:id="@+id/btn_like"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/love"/>
-
-            <!-- 点赞数 -->
-            <TextView
-                android:id="@+id/like_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginLeft="4dp"/>
-        </LinearLayout>
     </LinearLayout>
 
     <!-- 评论时间 -->
