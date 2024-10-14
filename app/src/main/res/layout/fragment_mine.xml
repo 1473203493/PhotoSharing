@@ -204,7 +204,7 @@
                 android:layout_alignLeft="@id/save"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="1dp"
-                android:text="我的草稿"
+                android:text="我的保存"
                 android:textColor="@color/colorhobby"
                 android:textSize="12sp" />
 
