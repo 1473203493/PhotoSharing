@@ -86,7 +86,7 @@
                 android:layout_toRightOf="@id/iv_avatar"
                 android:layout_marginLeft="1dp"
                 android:layout_marginTop="8dp"
-                android:text="个人介绍："
+                android:text="个性签名："
                 android:textColor="#353535"
                 android:textSize="14sp"
                 android:maxLines="3"
@@ -114,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
-                android:text="我的动态"
+                android:text=""
                 android:textColor="#353535"
                 android:textSize="16sp" />
 
@@ -241,7 +241,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@id/information1"
-                android:text="账号与信息"
+                android:text="用户信息"
                 android:textColor="#353535"
                 android:textSize="16sp"
                 android:clickable="true"/>
