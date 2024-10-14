@@ -43,7 +43,7 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.ReplyViewHol
         holder.replyTime.setText(reply.getCreateTime());
 
         // 加载用户头像（假设你有头像的 URL 字段）
-        String avatarUrl = "https://guet-lab.oss-cn-hangzhou.aliyuncs.com/api/2023/12/14/b15f3e06-4175-494a-9a81-8ed0b47ae87b.png";  // 你可能需要从 reply 中获取实际的头像 URL
+        String avatarUrl = "https://tse4-mm.cn.bing.net/th/id/OIP-C.X-VG5gTN2ak8rGRij3oCogAAAA?w=165&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7";  // 你可能需要从 reply 中获取实际的头像 URL
         if (!avatarUrl.isEmpty()) {
             Picasso.get().load(avatarUrl).into(holder.replyUserAvatar);
         }

@@ -1,8 +1,6 @@
 package Adapter;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +9,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.PhotoShare.MoreActivity;
+import com.example.PhotoShare.DetailActivity;
 import com.example.PhotoShare.R;
 import com.squareup.picasso.Picasso;
 
 import entity.Card;
 import okhttp3.*;
 
-import java.io.IOException;
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {
@@ -58,7 +55,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
         // 图片点击事件
         holder.imageView.setOnClickListener(v -> {
-            Intent intent = new Intent(holder.itemView.getContext(), MoreActivity.class);
+            Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
             intent.putExtra("share_id", card.getId());  // 传递分享的主键ID
             holder.itemView.getContext().startActivity(intent);
         });

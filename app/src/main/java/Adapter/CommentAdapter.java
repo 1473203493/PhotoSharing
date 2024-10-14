@@ -49,7 +49,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         holder.commentTime.setText(comment.getCreateTime());
 
         // 加载用户头像（假设有头像的 URL 字段）
-        String avatarUrl = "https://guet-lab.oss-cn-hangzhou.aliyuncs.com/api/2023/12/14/b15f3e06-4175-494a-9a81-8ed0b47ae87b.png";  // 从 comment 中获取实际的头像 URL
+        String avatarUrl = "https://tse4-mm.cn.bing.net/th/id/OIP-C.X-VG5gTN2ak8rGRij3oCogAAAA?w=165&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7";  // 从 comment 中获取实际的头像 URL
         Picasso.get().load(avatarUrl).into(holder.commentUserAvatar);
 
 
